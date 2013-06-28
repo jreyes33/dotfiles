@@ -1,0 +1,16 @@
+# https://github.com/github/gitignore/blob/master/Global/vim.gitignore
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# https://github.com/github/gitignore/blob/master/Global/SVN.gitignore
+.svn/
+
+# https://github.com/github/gitignore/blob/master/Global/SASS.gitignore
+*.sass-cache
+
+# https://github.com/github/gitignore/blob/master/Global/SublimeText.gitignore
+*.sublime-project
+*.sublime-workspace
