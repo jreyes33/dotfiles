@@ -1,0 +1,42 @@
+" Initialize pathogen.
+execute pathogen#infect()
+
+" Personal preferences
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set colorcolumn=80
+set list
+
+" Open NERDTree if `vim` is called without arguments.
+autocmd vimenter * if !argc() | NERDTree | endif
+" Close vim if NERDTree is the only window left open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+" autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+
+" Key bindings.
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+" http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+" Set default colorscheme.
+colorscheme Sunburst
