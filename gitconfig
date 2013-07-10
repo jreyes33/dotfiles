@@ -1,11 +1,11 @@
 [user]
   name = Jonathan Reyes
-  email = jreyes@devsu.com
+  email = j@jreyes.org
 [core]
   autocrlf = false
   safecrlf = true
   editor = vim
-  excludesfile = /home/jreyes/.cvsignore
+  excludesfile = ~/.cvsignore
 
 [alias]
   co = checkout
