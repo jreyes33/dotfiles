@@ -33,10 +33,21 @@ endfunction
 " Key bindings.
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+" Pasting code.
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+" Tab shortcuts
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
 
 " Set default colorscheme.
 colorscheme Sunburst
+
+" Zencoding (Emmet) config
+let g:user_zen_settings = {
+  \  'haml' : {
+  \    'filters' : 'haml',
+  \  },
+  \}
