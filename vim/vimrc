@@ -8,7 +8,9 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set colorcolumn=80
+set cursorline
 set list
+set iskeyword+=-
 
 " Open NERDTree if `vim` is called without arguments.
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -38,6 +40,9 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+" Reindent the whole file
+" http://vim.wikia.com/wiki/Fix_indentation
+map <F7> mzgg=G`z<CR>
 " Tab shortcuts
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
@@ -51,3 +56,11 @@ let g:user_zen_settings = {
   \    'filters' : 'haml',
   \  },
   \}
+
+" SuperTab config
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+autocmd FileType *
+  \ if &omnifunc != '' |
+  \   call SuperTabChain(&omnifunc, "<c-n>") |
+  \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
+  \ endif

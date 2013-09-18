@@ -43,6 +43,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 export TERM="xterm-256color"
+export NCURSES_NO_UTF8_ACS=1
 
 unsetopt auto_name_dirs
 source ~/.rvm/scripts/rvm
