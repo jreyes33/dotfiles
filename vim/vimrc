@@ -10,6 +10,7 @@ set smartindent
 set cursorline
 set list
 set iskeyword+=-
+" Older versions don't support colorcolumn
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
