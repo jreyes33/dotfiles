@@ -7,10 +7,12 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-set colorcolumn=80
 set cursorline
 set list
 set iskeyword+=-
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
 
 " Open NERDTree if `vim` is called without arguments.
 autocmd vimenter * if !argc() | NERDTree | endif
