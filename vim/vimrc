@@ -51,7 +51,7 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 colorscheme Sunburst
 
 " Zencoding (Emmet) config
-let g:user_zen_settings = {
+let g:user_emmet_settings = {
   \  'haml' : {
   \    'filters' : 'haml',
   \  },
