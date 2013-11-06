@@ -49,9 +49,6 @@
 [submodule "vim/bundle/MatchTag"]
 	path = vim/bundle/MatchTag
 	url = git://github.com/gregsexton/MatchTag.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/vim-css3-syntax"]
 	path = vim/bundle/vim-css3-syntax
 	url = git://github.com/hail2u/vim-css3-syntax.git
@@ -64,3 +61,6 @@
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
 	url = git://github.com/slim-template/vim-slim.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = git://github.com/plasticboy/vim-markdown.git
