@@ -28,3 +28,5 @@
 
 [github]
   user = jreyes33
+[push]
+  default = upstream
