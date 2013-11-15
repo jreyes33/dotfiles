@@ -8,7 +8,6 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set cursorline
-set list
 set iskeyword+=-
 " Older versions don't support colorcolumn
 if exists('+colorcolumn')
@@ -35,7 +34,7 @@ endfunction
 
 " autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 
-" Key bindings.
+" Personal key bindings and commands.
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 " Pasting code.
@@ -49,6 +48,18 @@ map <F7> mzgg=G`z<CR>
 " Tab shortcuts
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
+" Display wrapped text nicely.
+" http://vimcasts.org/episodes/soft-wrapping-text/
+" command! -nargs=* Wrap set wrap linebreak nolist
+set nowrap nolinebreak list
+nnoremap <F4> :set wrap! linebreak! nolist! wrap?<CR>
+imap <F4> <C-o><F4>
+" Navigating through wrapped text.
+" http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+" noremap <buffer> <silent> <Home> g^
+" noremap <buffer> <silent> <End> g$
 
 " Set default colorscheme.
 colorscheme Sunburst
