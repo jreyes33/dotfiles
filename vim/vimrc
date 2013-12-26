@@ -56,8 +56,8 @@ nnoremap <F4> :set wrap! linebreak! nolist! wrap?<CR>
 imap <F4> <C-o><F4>
 " Navigating through wrapped text.
 " http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
+noremap <silent> k gk
+noremap <silent> j gj
 " noremap <buffer> <silent> <Home> g^
 " noremap <buffer> <silent> <End> g$
 
