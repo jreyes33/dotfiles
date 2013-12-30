@@ -1,6 +1,7 @@
 [user]
   name = Jonathan Reyes
   email = j@jreyes.org
+
 [core]
   autocrlf = false
   safecrlf = true
@@ -15,18 +16,13 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
+
 [color]
   diff = true
   ui = true
 
-[giggle]
-  main-window-maximized = true
-  main-window-geometry = 903x623+140+25
-  history-view-vpane-position = 401
-  main-window-view = HistoryView
-  file-view-vpane-position = 571
-
 [github]
   user = jreyes33
+
 [push]
   default = tracking

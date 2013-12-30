@@ -1,3 +1,8 @@
+" Disable plugins accordingly
+let g:pathogen_disabled = []
+if v:version < 703
+  call add(g:pathogen_disabled, 'numbers.vim')
+endif
 " Initialize pathogen.
 execute pathogen#infect()
 
