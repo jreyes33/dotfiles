@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(command-not-found debian gem git npm nyan pip rails4 rvm tmux vagrant virtualenvwrapper)
+plugins=(command-not-found debian gem git npm nyan pip rails rvm tmux vagrant virtualenvwrapper)
 
 # plugin options
 ZSH_TMUX_AUTOSTART="true"
@@ -46,8 +46,6 @@ export TERM="xterm-256color"
 export NCURSES_NO_UTF8_ACS=1
 
 unsetopt auto_name_dirs
-source ~/.rvm/scripts/rvm
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 source $HOME/.nvm/nvm.sh
 
@@ -61,3 +59,6 @@ alias o='xdg-open'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+source ~/.rvm/scripts/rvm
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

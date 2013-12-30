@@ -2,6 +2,8 @@
 execute pathogen#infect()
 
 " Personal preferences
+let mapleader = " "
+set number
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -67,13 +69,28 @@ nnoremap <F4> :set wrap! linebreak! nolist! wrap?<CR>
 imap <F4> <C-o><F4>
 " Navigating through wrapped text.
 " http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
+noremap <silent> k gk
+noremap <silent> j gj
 " noremap <buffer> <silent> <Home> g^
 " noremap <buffer> <silent> <End> g$
 
 " Set default colorscheme.
 colorscheme Sunburst
+
+" Vim-airline config
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "powerlineish"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+set noshowmode
+
+" Vim-gitgutter config
+let g:gitgutter_sign_column_always = 1
 
 " Zencoding (Emmet) config
 let g:user_emmet_settings = {
