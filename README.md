@@ -4,7 +4,7 @@ I keep my config files here. Feel free to take a look around.
 
 ## Installation
 
-The first time the repo is cloned, initialize its submodules by running:
+The first time the repo is cloned (or when new Vim plugins are installed), initialize its submodules by running:
 
 - `git submodule update --init --recursive`
 
