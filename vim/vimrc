@@ -48,6 +48,17 @@ map <F7> mzgg=G`z<CR>
 " Tab shortcuts
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
+" Save using Ctrl-s
+" http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files
+command -nargs=0 -bar Update if &modified
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-s> :<C-u>Update<CR>
+inoremap <C-s> <Esc>:Update<CR>
 " Display wrapped text nicely.
 " http://vimcasts.org/episodes/soft-wrapping-text/
 " command! -nargs=* Wrap set wrap linebreak nolist
