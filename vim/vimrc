@@ -8,6 +8,7 @@ execute pathogen#infect()
 
 " Personal preferences
 let mapleader = " "
+set modeline
 set number
 set expandtab
 set tabstop=2
