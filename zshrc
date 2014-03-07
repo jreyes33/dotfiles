@@ -1,33 +1,14 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
-CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+CASE_SENSITIVE=true
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS=true
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -35,8 +16,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(command-not-found debian gem git npm nyan pip rails rvm tmux vagrant virtualenvwrapper)
 
 # plugin options
-ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_AUTOCONNECT="false"
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOCONNECT=false
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,18 +28,33 @@ export NCURSES_NO_UTF8_ACS=1
 
 unsetopt auto_name_dirs
 
-source $HOME/.nvm/nvm.sh
+# Allow Ctrl-s in vim
+alias vim="stty stop '' -ixoff ; vim"
+# "Frozing" tty, so after any command terminal settings will be restored
+ttyctl -f
 
-export _Z_DATA=$HOME/.z-data
-source $HOME/.z/z.sh
-
+# Some other useful aliases
 alias gs='git status'
 compdef _git gs=git-status
-
 alias o='xdg-open'
+
+################################################################################
+### Additional scripts
+################################################################################
+
+# Z script (https://github.com/rupa/z)
+export _Z_DATA=$HOME/.z/z-data
+[[ -s $HOME/.z/z.sh ]] && source $HOME/.z/z.sh
+
+# NVM
+[[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+
+# virtualenwrapper
+[[ -s /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-source ~/.rvm/scripts/rvm
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# RVM
+export PATH=$PATH:$HOME/.rvm/bin
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
