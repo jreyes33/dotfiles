@@ -3,6 +3,7 @@ let g:pathogen_disabled = []
 if v:version < 703
   call add(g:pathogen_disabled, 'numbers.vim')
 endif
+
 " Initialize pathogen.
 execute pathogen#infect()
 
@@ -17,6 +18,7 @@ set autoindent
 set smartindent
 set cursorline
 set iskeyword+=-
+
 " Older versions don't support colorcolumn
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -24,38 +26,38 @@ endif
 
 " Open NERDTree if `vim` is called without arguments.
 autocmd vimenter * if !argc() | NERDTree | endif
+
 " Close vim if NERDTree is the only window left open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " http://vimcasts.org/episodes/tidying-whitespace/
 function! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
   let c = col(".")
-  " Do the business:
   %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
   let @/=_s
   call cursor(l, c)
 endfunction
 
-" autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
-
 " Personal key bindings and commands.
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
 " Pasting code.
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
 " Reindent the whole file
 " http://vim.wikia.com/wiki/Fix_indentation
 map <F7> mzgg=G`z<CR>
+
 " Tab shortcuts
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
+
 " Save using Ctrl-s
 " http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files
 command -nargs=0 -bar Update if &modified
@@ -67,18 +69,17 @@ command -nargs=0 -bar Update if &modified
                            \|endif
 nnoremap <silent> <C-s> :<C-u>Update<CR>
 inoremap <C-s> <Esc>:Update<CR>
+
 " Display wrapped text nicely.
 " http://vimcasts.org/episodes/soft-wrapping-text/
-" command! -nargs=* Wrap set wrap linebreak nolist
 set nowrap nolinebreak list
 nnoremap <F4> :set wrap! linebreak! nolist! wrap?<CR>
 imap <F4> <C-o><F4>
+
 " Navigating through wrapped text.
 " http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
 noremap <silent> k gk
 noremap <silent> j gj
-" noremap <buffer> <silent> <Home> g^
-" noremap <buffer> <silent> <End> g$
 
 " Set default colorscheme.
 colorscheme Sunburst
@@ -98,7 +99,7 @@ set noshowmode
 " Vim-gitgutter config
 let g:gitgutter_sign_column_always = 1
 
-" Zencoding (Emmet) config
+" Emmet config
 let g:user_emmet_settings = {
   \  'haml' : {
   \    'filters' : 'haml',
