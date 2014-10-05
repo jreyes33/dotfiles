@@ -14,3 +14,9 @@ Session.vim
 # https://github.com/github/gitignore/blob/master/Global/SublimeText.gitignore
 *.sublime-project
 *.sublime-workspace
+
+# oh-my-zsh gradle plugin files
+.gradletasknamecache
+
+# Mac OS X files
+.DS_Store

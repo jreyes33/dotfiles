@@ -1,8 +1,13 @@
+export TERM="xterm-256color"
+export NCURSES_NO_UTF8_ACS=1
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cloud"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE=true
@@ -13,7 +18,7 @@ COMPLETION_WAITING_DOTS=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(command-not-found debian gem git npm nyan pip rails rvm tmux vagrant virtualenvwrapper)
+plugins=(brew brew-cask bundler command-not-found debian gem git gradle npm nyan pip rails rvm vagrant virtualenvwrapper)
 
 # plugin options
 ZSH_TMUX_AUTOSTART=true
@@ -23,20 +28,24 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-export TERM="xterm-256color"
-export NCURSES_NO_UTF8_ACS=1
+# System specific
+export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:/usr/local/bin:$PATH
 
 unsetopt auto_name_dirs
 
 # Allow Ctrl-s in vim
-alias vim="stty stop '' -ixoff ; vim"
-# "Frozing" tty, so after any command terminal settings will be restored
-ttyctl -f
+stty -ixon
 
 # Some other useful aliases
 alias gs='git status'
 compdef _git gs=git-status
-alias o='xdg-open'
+alias glr='git pull --rebase'
+compdef _git glr=git-pull
+alias o='open'
+unalias ag
+
+# Enable colors in ant
+export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
 
 ################################################################################
 ### Additional scripts
@@ -58,3 +67,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # RVM
 export PATH=$PATH:$HOME/.rvm/bin
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# Enable `hitch` for pair programming commits
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
