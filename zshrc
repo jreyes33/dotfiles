@@ -23,7 +23,8 @@ fi
 
 export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 export PATH=/usr/local/heroku/bin:$PATH
-[[ $OSX == '1' ]] && export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:/usr/local/bin:$PATH
+[[ $OSX == '1' ]] && export PATH=/usr/local/bin:$PATH
+[[ $OSX == '1' ]] && export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export EDITOR=vim
 
