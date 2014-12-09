@@ -112,6 +112,9 @@ let g:user_emmet_settings = {
   \  },
   \}
 
+" CtrlP config
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 " SuperTab config
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 autocmd FileType *
