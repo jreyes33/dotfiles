@@ -18,6 +18,7 @@ set autoindent
 set smartindent
 set cursorline
 set iskeyword+=-
+set t_ut=
 
 " Older versions don't support colorcolumn
 if exists('+colorcolumn')
