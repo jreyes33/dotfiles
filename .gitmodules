@@ -118,6 +118,6 @@
 [submodule "vim/bundle/jasmine.vim"]
 	path = vim/bundle/jasmine.vim
 	url = git://github.com/claco/jasmine.vim.git
-[submodule "vim/bundle/angular.vim"]
-	path = vim/bundle/angular.vim
-	url = git://github.com/vim-scripts/angular.vim.git
+[submodule "vim/bundle/vim-angular"]
+	path = vim/bundle/vim-angular
+	url = git://github.com/burnettk/vim-angular.git
