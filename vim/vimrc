@@ -67,7 +67,7 @@ map <F7> mzgg=G`z<CR>
 
 " Save using Ctrl-s
 " http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files
-command -nargs=0 -bar Update if &modified
+command! -nargs=0 -bar Update if &modified
                            \|    if empty(bufname('%'))
                            \|        browse confirm write
                            \|    else
@@ -123,3 +123,13 @@ autocmd FileType *
   \   call SuperTabChain(&omnifunc, "<c-n>") |
   \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
   \ endif
+
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
