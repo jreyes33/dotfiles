@@ -22,6 +22,8 @@ set ignorecase
 set smartcase
 set iskeyword+=-
 set t_ut=
+set backupdir^=~/.vim/_backup//
+set directory^=~/.vim/_temp//
 
 " Older versions don't support colorcolumn
 if exists('+colorcolumn')
