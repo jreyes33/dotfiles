@@ -24,6 +24,9 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
+" Disable cursorline on insert mode
+autocmd InsertEnter,InsertLeave * set cursorline!
+
 " Close vim if NERDTree is the only window left open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
