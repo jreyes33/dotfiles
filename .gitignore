@@ -1,0 +1,4 @@
+vim/_backup/*
+vim/_temp/*
+!vim/_backup/.gitkeep
+!vim/_temp/.gitkeep
