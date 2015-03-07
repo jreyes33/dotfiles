@@ -136,3 +136,6 @@
 [submodule "vim/bundle/vitality.vim"]
 	path = vim/bundle/vitality.vim
 	url = git://github.com/sjl/vitality.vim.git
+[submodule "vim/bundle/vim-ansible-yaml"]
+	path = vim/bundle/vim-ansible-yaml
+	url = git://github.com/chase/vim-ansible-yaml.git
