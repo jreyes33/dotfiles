@@ -60,6 +60,7 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 let mapleader = ","
 map <leader>r :source ~/.vimrc<CR>
 map <leader>y "+y
+map <leader>f :NERDTreeFind <CR>
 " Re-open last file
 nnoremap <leader><leader> <c-^>
 " upper/lower word
