@@ -36,6 +36,7 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 
 " Close vim if NERDTree is the only window left open.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeQuitOnOpen=1
 
 " http://vimcasts.org/episodes/tidying-whitespace/
 function! <SID>StripTrailingWhitespaces()
