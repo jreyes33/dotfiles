@@ -31,6 +31,10 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
+" Auto reload files
+set autoread
+autocmd CursorHold * checktime
+
 " Disable cursorline on insert mode
 autocmd InsertEnter,InsertLeave * set cursorline!
 
