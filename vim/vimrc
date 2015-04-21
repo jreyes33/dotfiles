@@ -134,12 +134,8 @@ let g:user_emmet_settings = {
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " SuperTab config
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-n>") |
-  \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
-  \ endif
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " vim-json config
 let g:vim_json_syntax_conceal = 0
