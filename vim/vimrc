@@ -167,3 +167,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 if exists(':AirlineRefresh')
   AirlineRefresh
 endif
+
+" Navigate between buffers
+" https://github.com/sriprasanna/.dotfiles/blob/master/vimrc#L177
+nmap <C-k> :bnext<CR>
+nmap <C-j> :bprev<CR>
