@@ -37,6 +37,21 @@ alias glr='git pull --rebase'
 compdef _git glr=git-pull
 alias gsinit='git submodule update --init --recursive'
 alias gspull='git submodule foreach git pull origin master'
+
+# Waiting for this PR to be merged: https://github.com/robbyrussell/oh-my-zsh/pull/3661
+_gradlew_tasks () {
+  if [ in_gradle ]; then
+    _gradle_arguments
+    if _gradle_does_task_list_need_generating; then
+     ./gradlew tasks --all | grep "^[ ]*[a-zA-Z0-9]*\ -\ " | sed "s/ - .*$//" | sed "s/[\ ]*//" > .gradletasknamecache
+    fi
+    compadd -X "==== Gradlew Tasks ====" `cat .gradletasknamecache`
+  fi
+}
+
+alias gw='./gradlew'
+compdef _gradlew_tasks gw
+
 [[ $OSX == '1' ]] && alias o='open'
 [[ $LINUX == '1' ]] && alias o='xdg-open'
 
