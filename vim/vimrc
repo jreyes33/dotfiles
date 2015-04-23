@@ -53,9 +53,8 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " Personal key bindings and commands.
-map ; :
-noremap ;; ;
-map Q :q<CR>
+map <C-q> :q<CR>
+imap <C-q> <Esc>:q<CR>
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <C-t>     :tabnew<CR>
