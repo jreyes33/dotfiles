@@ -172,3 +172,11 @@ endif
 " https://github.com/sriprasanna/.dotfiles/blob/master/vimrc#L177
 nmap <C-k> :bnext<CR>
 nmap <C-j> :bprev<CR>
+
+" vim-ruby-xmpfilter and seeing_is_believing config
+let g:xmpfilter_cmd = "seeing_is_believing"
+autocmd FileType ruby nmap <buffer> <leader>m <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby nmap <buffer> <leader>c <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby nmap <buffer> <leader>e <Plug>(seeing_is_believing-run_-x)
+" auto insert mark at appropriate spot.
+autocmd FileType ruby nmap <buffer> <leader>i <Plug>(seeing_is_believing-run)

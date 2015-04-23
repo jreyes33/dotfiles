@@ -142,3 +142,6 @@
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim/bundle/vim-ruby-xmpfilter"]
+	path = vim/bundle/vim-ruby-xmpfilter
+	url = git://github.com/t9md/vim-ruby-xmpfilter.git
