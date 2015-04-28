@@ -17,6 +17,7 @@
   type = cat-file -t
   dump = cat-file -p
   churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
+  searchlogs = "!g() { for d in */; do if [ -d \"$d.git\" ]; then log=$(git --git-dir=$d.git --work-tree=$d --no-pager log --grep=\"$@\"); if [ -n \"$log\" ]; then echo \"\\n======> $d\\n\\n$log\"; fi; fi; done; }; g"
 
 [color]
   diff = true
