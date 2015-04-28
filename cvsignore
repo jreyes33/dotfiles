@@ -15,6 +15,9 @@ Session.vim
 *.sublime-project
 *.sublime-workspace
 
+# https://github.com/github/gitignore/blob/master/Global/LibreOffice.gitignore
+.~lock.*#
+
 # oh-my-zsh gradle plugin files
 .gradletasknamecache
 
