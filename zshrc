@@ -8,7 +8,7 @@ ZSH_THEME='cloud'
 CASE_SENSITIVE=true
 COMPLETION_WAITING_DOTS=true
 
-plugins=(brew brew-cask bundler command-not-found debian gem git gradle npm nyan pip rails rvm tmux vagrant)
+plugins=(git gradle tmux vagrant)
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=false
@@ -28,7 +28,6 @@ export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export EDITOR=vim
 
 unsetopt auto_name_dirs
-unalias ag
 alias please='sudo'
 alias gs='git status'
 compdef _git gs=git-status
