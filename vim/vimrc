@@ -172,6 +172,9 @@ endif
 nmap <C-k> :bnext<CR>
 nmap <C-j> :bprev<CR>
 
+" Use ruby syntax highlighting for Vagrantfile
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+
 " vim-ruby-xmpfilter and seeing_is_believing config
 let g:xmpfilter_cmd = "seeing_is_believing"
 autocmd FileType ruby nmap <buffer> <leader>m <Plug>(seeing_is_believing-mark)
