@@ -21,9 +21,8 @@ else
   export OSX=1
 fi
 
-export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-export PATH=/usr/local/heroku/bin:$PATH
-[[ $OSX == '1' ]] && export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=$HOME/bin:/usr/local/heroku/bin:/usr/local/sbin:$PATH
 [[ $OSX == '1' ]] && export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export EDITOR=vim
@@ -55,7 +54,7 @@ compdef _gradlew_tasks gw
 [[ $OSX == '1' ]] && alias o='open'
 [[ $LINUX == '1' ]] && alias o='xdg-open'
 
-# Allow Ctrl-s in vim
+# Allow Ctrl-s and Ctrl-q in Vim
 stty -ixon
 
 export _Z_DATA=$HOME/.z/z-data
