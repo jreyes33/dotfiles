@@ -34,8 +34,6 @@ alias gs='git status'
 compdef _git gs=git-status
 alias glr='git pull --rebase'
 compdef _git glr=git-pull
-alias gsinit='git submodule update --init --recursive'
-alias gspull='git submodule foreach git pull origin master'
 
 # Waiting for this PR to be merged: https://github.com/robbyrussell/oh-my-zsh/pull/3661
 _gradlew_tasks () {
