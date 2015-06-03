@@ -167,6 +167,10 @@ if exists(':AirlineRefresh')
   AirlineRefresh
 endif
 
+" vim-expand-region config
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
+
 " Navigate between buffers
 " https://github.com/sriprasanna/.dotfiles/blob/master/vimrc#L177
 nmap <C-k> :bnext<CR>

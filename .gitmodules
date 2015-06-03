@@ -145,3 +145,6 @@
 [submodule "vim/bundle/vim-ruby-xmpfilter"]
 	path = vim/bundle/vim-ruby-xmpfilter
 	url = git://github.com/t9md/vim-ruby-xmpfilter.git
+[submodule "vim/bundle/vim-expand-region"]
+	path = vim/bundle/vim-expand-region
+	url = git://github.com/terryma/vim-expand-region.git
