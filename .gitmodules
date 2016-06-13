@@ -148,3 +148,6 @@
 [submodule "vim/bundle/base16-vim"]
 	path = vim/bundle/base16-vim
 	url = git://github.com/chriskempson/base16-vim.git
+[submodule "vim/bundle/vim-toml"]
+	path = vim/bundle/vim-toml
+	url = git://github.com/cespare/vim-toml.git
