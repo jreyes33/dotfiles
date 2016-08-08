@@ -1,6 +1,7 @@
 URxvt*cursorBlink: true
 ! URxvt*font: xft:Inconsolata\\-g for Powerline:size=9
-URxvt*font: xft:Roboto Mono for Powerline:size=9
+! URxvt*font: xft:Roboto Mono for Powerline:size=9
+URxvt*font: xft:Input:size=9
 URxvt*geometry: 100x30
 ! URxvt*letterSpace: -1
 URxvt*loginShell: true
