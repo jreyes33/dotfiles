@@ -151,3 +151,6 @@
 [submodule "vim/bundle/vim-toml"]
 	path = vim/bundle/vim-toml
 	url = git://github.com/cespare/vim-toml.git
+[submodule "vim/bundle/plantuml-syntax"]
+	path = vim/bundle/plantuml-syntax
+	url = git://github.com/aklt/plantuml-syntax.git
