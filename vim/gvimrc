@@ -1,7 +1,0 @@
-let os=substitute(system('uname'), '\n', '', '')
-if os == 'Darwin' || os == 'Mac'
-  set guifont=Inconsolata-g\ for\ Powerline:h13
-  set transparency=0
-elseif os == 'Linux'
-  set guifont=Inconsolata-g\ for\ Powerline\ Medium\ 11
-endif

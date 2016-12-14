@@ -1,46 +1,33 @@
-" Disable plugins accordingly
 let g:pathogen_disabled = []
-if v:version < 703
-  call add(g:pathogen_disabled, 'numbers.vim')
-endif
-
-" Initialize pathogen.
 execute pathogen#infect()
 
-" Personal preferences
-set modeline
 set number
+set cursorline
+set hidden
+set ignorecase
+set smartcase
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set autoindent
-set smartindent
-set cursorline
-set hidden
-set incsearch
-set ignorecase
-set smartcase
-set noshowmode
 set iskeyword+=-
-set t_ut=
 set backupdir^=~/.vim/_backup//
 set directory^=~/.vim/_temp//
-
-" Older versions don't support colorcolumn
-if exists('+colorcolumn')
-  set colorcolumn=100
-endif
+set t_ut=
+set t_ti= t_te=
+set colorcolumn=100
+set background=dark
+let base16colorspace=256
+colorscheme base16-default
 
 " Auto reload files
-set autoread
 autocmd CursorHold * checktime
 
 " Disable cursorline on insert mode
 autocmd InsertEnter,InsertLeave * set cursorline!
 
-" Close vim if NERDTree is the only window left open.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeQuitOnOpen=1
+" Syntax highlight some oddly named files
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead *.gradle set filetype=groovy
 
 " http://vimcasts.org/episodes/tidying-whitespace/
 function! <SID>StripTrailingWhitespaces()
@@ -52,39 +39,18 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-" Personal key bindings and commands.
-map <C-q> :q<CR>
-imap <C-q> <Esc>:q<CR>
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
-
-" Key bindings using comma as <leader>
 let mapleader = ","
-map <leader>r :source ~/.vimrc<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
+nmap <C-k> :bnext<CR>
+nmap <C-j> :bprev<CR>
+" TODO: fix in linux or remove
 map <leader>y "+y
-map <leader>f :NERDTreeFind <CR>
-" Re-open last file
-nnoremap <leader><leader> <c-^>
+nmap <leader>f :NERDTreeFind <CR>
 " Save and run last command
 nnoremap <leader>w :w<CR>:!clear; !<CR>
-" upper/lower word
-nmap <leader>u mQviwU`Q
-nmap <leader>l mQviwu`Q
-" upper/lower first char of word
-nmap <leader>U mQgewvU`Q
-nmap <leader>L mQgewvu`Q
-" Toggle hlsearch with <leader>hs
-nmap <leader>hs :set hlsearch! hlsearch?<CR>
-
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-g>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
 
 " Pasting code.
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
@@ -93,19 +59,7 @@ set pastetoggle=<F2>
 
 " Reindent the whole file
 " http://vim.wikia.com/wiki/Fix_indentation
-map <F7> mzgg=G`z<CR>
-
-" Save using Ctrl-s
-" http://vim.wikia.com/wiki/Map_Ctrl-S_to_save_current_or_new_files
-command! -nargs=0 -bar Update if &modified
-                           \|    if empty(bufname('%'))
-                           \|        browse confirm write
-                           \|    else
-                           \|        confirm write
-                           \|    endif
-                           \|endif
-nnoremap <silent> <C-s> :<C-u>Update<CR>
-inoremap <C-s> <Esc>:Update<CR>
+nmap <F7> mzgg=G`z<CR>
 
 " Display wrapped text nicely.
 " http://vimcasts.org/episodes/soft-wrapping-text/
@@ -113,83 +67,13 @@ set nowrap nolinebreak list
 nnoremap <F4> :set wrap! linebreak! nolist! wrap?<CR>
 imap <F4> <C-o><F4>
 
-" Navigating through wrapped text.
-" http://vim.wikia.com/wiki/Move_cursor_by_display_lines_when_wrapping
-noremap <silent> k gk
-noremap <silent> j gj
-
-" Set default colorscheme.
-set background=dark
-let base16colorspace=256
-colorscheme base16-default
-
-" Vim-gitgutter config
-let g:gitgutter_sign_column_always = 1
-
-" Emmet config
-let g:user_emmet_settings = {
-  \  'haml' : {
-  \    'filters' : 'haml',
-  \  },
-  \}
-
-" CtrlP config
+" Plugins config
+let g:NERDTreeQuitOnOpen=1
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" SuperTab config
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-" vim-json config
-let g:vim_json_syntax_conceal = 0
-
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_filetype_map = {'ansible': 'yaml'}
 let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-autocmd BufRead,BufNewFile *.jsx let b:syntastic_checkers = ['jsxhint']
-
-" Vim-airline config
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "base16"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-if exists(':AirlineRefresh')
-  AirlineRefresh
-endif
-
-" vim-expand-region config
-vmap v <Plug>(expand_region_expand)
-vmap V <Plug>(expand_region_shrink)
-
-" Navigate between buffers
-" https://github.com/sriprasanna/.dotfiles/blob/master/vimrc#L177
-nmap <C-k> :bnext<CR>
-nmap <C-j> :bprev<CR>
-
-" Use ruby syntax highlighting for Vagrantfile
-autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
-
-" Use groovy syntax highlighting for Gradle
-autocmd BufNewFile,BufRead *.gradle set filetype=groovy
-
-" vim-ruby-xmpfilter and seeing_is_believing config
-let g:xmpfilter_cmd = "seeing_is_believing"
-autocmd FileType ruby nmap <buffer> <leader>m <Plug>(seeing_is_believing-mark)
-autocmd FileType ruby nmap <buffer> <leader>c <Plug>(seeing_is_believing-clean)
-autocmd FileType ruby nmap <buffer> <leader>e <Plug>(seeing_is_believing-run_-x)
-" auto insert mark at appropriate spot.
-autocmd FileType ruby nmap <buffer> <leader>i <Plug>(seeing_is_believing-run)
+let g:syntastic_javascript_checkers = []
+" let g:syntastic_javascript_checkers = ['jshint', 'jscs']
