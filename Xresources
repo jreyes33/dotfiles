@@ -5,10 +5,13 @@ URxvt*font: xft:Input:size=9
 URxvt*geometry: 100x30
 ! URxvt*letterSpace: -1
 URxvt*loginShell: true
-URxvt*matcher*button: C1
-URxvt*perl-ext-common: default,matcher
 URxvt*scrollBar: false
 URxvt*scrollTtyOutput: false
+URxvt*perl-ext-common: default,matcher,font-size
+URxvt*matcher*button: C1
+URxvt*keysym*C-plus: perl:font-size:increase
+URxvt*keysym*C-minus: perl:font-size:decrease
+URxvt*keysym*C-0: perl:font-size:reset
 
 ! Linux colors from https://wiki.gentoo.org/wiki/Rxvt-unicode
 URxvt*background: #000000
