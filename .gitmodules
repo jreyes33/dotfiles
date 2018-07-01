@@ -43,3 +43,6 @@
 [submodule "vim/bundle/nginx.vim"]
 	path = vim/bundle/nginx.vim
 	url = git://github.com/chr4/nginx.vim
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
+	url = git://github.com/leafgarland/typescript-vim.git
