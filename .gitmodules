@@ -19,9 +19,6 @@
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = git://github.com/mattn/emmet-vim.git
-[submodule "vim/bundle/ag.vim"]
-	path = vim/bundle/ag.vim
-	url = git://github.com/rking/ag.vim.git
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
@@ -46,3 +43,6 @@
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = git://github.com/rust-lang/rust.vim.git
+[submodule "vim/bundle/ack.vim"]
+	path = vim/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
