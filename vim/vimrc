@@ -1,6 +1,3 @@
-let g:pathogen_disabled = []
-execute pathogen#infect()
-
 set number
 set cursorline
 set hidden
