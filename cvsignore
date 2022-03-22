@@ -11,15 +11,8 @@ Session.vim
 # https://github.com/github/gitignore/blob/master/Global/SASS.gitignore
 *.sass-cache
 
-# https://github.com/github/gitignore/blob/master/Global/SublimeText.gitignore
-*.sublime-project
-*.sublime-workspace
-
 # https://github.com/github/gitignore/blob/master/Global/LibreOffice.gitignore
 .~lock.*#
-
-# oh-my-zsh gradle plugin files
-.gradletasknamecache
 
 # Mac OS X files
 .DS_Store
