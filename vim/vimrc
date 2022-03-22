@@ -4,17 +4,21 @@ set hidden
 set ignorecase
 set smartcase
 set expandtab
+set foldmethod=syntax
+set foldlevelstart=100
 set tabstop=2
 set shiftwidth=2
-set iskeyword+=-
+set backupcopy=yes
 set backupdir^=~/.vim/_backup//
 set directory^=~/.vim/_temp//
 set t_ut=
 set t_ti= t_te=
 set colorcolumn=100
 set background=dark
-let base16colorspace=256
-colorscheme base16-default-dark
+if filereadable(expand('~/.vimrc_background'))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Auto reload files
 autocmd CursorHold * checktime
@@ -25,6 +29,7 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 " Syntax highlight some oddly named files
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead *.gradle set filetype=groovy
+autocmd BufNewFile,BufRead *.tmux set filetype=tmux
 
 " http://vimcasts.org/episodes/tidying-whitespace/
 function! <SID>StripTrailingWhitespaces()
@@ -43,11 +48,13 @@ nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
 nmap <C-k> :bnext<CR>
 nmap <C-j> :bprev<CR>
-" TODO: fix in linux or remove
+noremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>
+
 map <leader>y "+y
 nmap <leader>f :NERDTreeFind <CR>
 " Save and run last command
-nnoremap <leader>w :w<CR>:!clear; !<CR>
+nnoremap <leader>w :up \| :!!<CR><CR>
 
 " Pasting code.
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
@@ -64,16 +71,61 @@ set nowrap nolinebreak list
 nnoremap <F4> :set wrap! linebreak! nolist! wrap?<CR>
 imap <F4> <C-o><F4>
 
-" Plugins config
+" Navigate ale problems
+nmap <leader>n <Plug>(ale_next_wrap)
+nmap <leader>p <Plug>(ale_previous_wrap)
+" Go to definition
+nmap <leader>d <Plug>(ale_go_to_definition)
+" Fix file with ale fixers
+nmap <leader>i <Plug>(ale_fix)
+" Trigger ale autocomplete (CTRL+Space, but terminals send CTRL+@)
+imap <C-@> <Plug>(ale_complete)
+" inoremap <silent> <C-@> <C-\><C-O>:ALEComplete<CR>
+
+" Plugins config:
+" ack
 cnoreabbrev rg Ack
 cnoreabbrev Rg Ack
 let g:ackprg = 'rg --vimgrep --smart-case'
+
+" nerdtree
 let g:NERDTreeQuitOnOpen = 1
+
+" ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = []
-" let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+
+" zig
+let g:zig_fmt_autosave = 0
+
+" ale
+set completeopt=menu,menuone,popup
+let g:ale_lint_delay = 50
+let g:ale_set_balloons = 1
+let g:ale_set_highlights = 0
+let g:ale_close_preview_on_insert = 1
+let g:ale_c_clangd_executable = 'clangd-13'
+let g:ale_fixers = {
+\  'html': ['prettier'],
+\  'ruby': ['rubocop'],
+\  'rust': ['rustfmt'],
+\  'typescript': ['prettier'],
+\  'typescriptreact': ['prettier'],
+\  'javascript': ['prettier'],
+\  'javascriptreact': ['prettier'],
+\}
+let g:ale_linters = {
+\  'ruby': ['rubocop'],
+\  'rust': ['analyzer'],
+\  'typescript': ['tsserver'],
+\  'typescriptreact': ['tsserver'],
+\  'graphql': [],
+\}
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_rust_analyzer_config = {
+\  'experimental' : { 'procAttrMacros': v:true },
+\}
+" let g:ale_rust_rls_config = {
+" \  'rust': {
+" \    'clippy_preference': 'on',
+" \  }
+" \}
