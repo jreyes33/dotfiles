@@ -1,11 +1,12 @@
 URxvt*cursorBlink: true
 ! URxvt*font: xft:Inconsolata\\-g for Powerline:size=9
 ! URxvt*font: xft:Roboto Mono for Powerline:size=9
-URxvt*font: xft:Input:size=9
+URxvt*font: xft:Input:size=12
 URxvt*geometry: 100x30
 ! URxvt*letterSpace: -1
 URxvt*loginShell: true
 URxvt*scrollBar: false
+URxvt*iso14755: false
 URxvt*scrollTtyOutput: false
 URxvt*perl-ext-common: default,matcher,font-size
 URxvt*matcher*button: C1
@@ -33,4 +34,4 @@ URxvt*color13: #FF54FF
 URxvt*color14: #54FFFF
 URxvt*color15: #FFFFFF
 
-Xft*dpi: 220
+Xft*dpi: 100
