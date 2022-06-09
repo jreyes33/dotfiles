@@ -49,3 +49,6 @@
 [submodule "vim/pack/plugins/start/vim-surround"]
 	path = vim/pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/pack/plugins/start/vim-prisma"]
+	path = vim/pack/plugins/start/vim-prisma
+	url = https://github.com/pantharshit00/vim-prisma.git
