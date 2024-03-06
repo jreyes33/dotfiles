@@ -1,0 +1,19 @@
+[cursor.style]
+blinking = "Always"
+
+[font]
+size = 14.5
+
+[font.normal]
+family = "Input"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F"
+mods = "Control|Shift"
+
+[window]
+decorations = "none"
+dynamic_title = false
+startup_mode = "Maximized"
+option_as_alt = "Both"
