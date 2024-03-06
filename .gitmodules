@@ -58,3 +58,12 @@
 [submodule "vim/pack/plugins/start/polar.vim"]
 	path = vim/pack/plugins/start/polar.vim
 	url = https://github.com/osohq/polar.vim.git
+[submodule "vim/pack/plugins/start/vim-rhubarb"]
+	path = vim/pack/plugins/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "vim/pack/plugins/start/vim-repeat"]
+	path = vim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/pack/plugins/start/lightline.vim"]
+	path = vim/pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
