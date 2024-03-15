@@ -67,3 +67,6 @@
 [submodule "vim/pack/plugins/start/lightline.vim"]
 	path = vim/pack/plugins/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/pack/plugins/start/vim-jsonnet"]
+	path = vim/pack/plugins/start/vim-jsonnet
+	url = https://github.com/google/vim-jsonnet.git

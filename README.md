@@ -23,7 +23,7 @@ git submodule add https://github.com/dense-analysis/ale.git vim/pack/plugins/sta
 
 Update:
 ```sh
-git submodule foreach git pull origin master
+git submodule foreach git pull
 ```
 
 Remove:
