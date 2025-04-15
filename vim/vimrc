@@ -36,6 +36,7 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead *.gradle set filetype=groovy
 autocmd BufNewFile,BufRead *.tmux set filetype=tmux
+autocmd BufNewFile,BufRead Tiltfile* set filetype=tiltfile syntax=starlark
 
 " http://vimcasts.org/episodes/tidying-whitespace/
 function! <SID>StripTrailingWhitespaces()
