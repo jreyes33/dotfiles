@@ -19,7 +19,7 @@ bindkey "^[[4~" end-of-line
 bindkey "^[[Z" reverse-menu-complete
 
 # zsh help
-unalias run-help
+(( ${+aliases[run-help]} )) && unalias run-help
 alias help=run-help
 autoload -Uz run-help
 
