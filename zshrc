@@ -2,7 +2,7 @@ export TERM='xterm-256color'
 export NCURSES_NO_UTF8_ACS=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export PATH=~/bin:~/.cargo/bin:$PATH
+export PATH=~/bin:~/snap/android-studio-canary/common/sdk/platform-tools:~/.deno/bin:~/.cargo/bin:~/.npm-global/bin:/snap/bin:$PATH
 export EDITOR=vim
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -35,6 +35,7 @@ base16_brewer
 # base16_one-light
 
 # Aliases
+alias bat='bat --theme base16'
 alias ls='ls --color=auto'
 alias mlnl='tldr --language es'
 alias tmux-bash='tmux start \; source ~/bin/use-bash.tmux'
@@ -44,18 +45,9 @@ fpath+=~/.zfunc
 [[ -s /opt/homebrew ]] && fpath+=/opt/homebrew/share/zsh/site-functions
 autoload -Uz compinit
 compinit
-compdef _files quilt
 
-[[ -s ~/.config/exercism/exercism_completion.zsh ]] && source ~/.config/exercism/exercism_completion.zsh
-[[ -s /usr/local/bin/aws_zsh_completer.sh ]] && source /usr/local/bin/aws_zsh_completer.sh
 command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init zsh)"
 command -v mise > /dev/null 2>&1 && eval "$(mise activate zsh)"
-
-function heroku_enable_autocomplete {
-  local zsh_setup_path=~/.cache/heroku/autocomplete/zsh_setup
-  heroku autocomplete --refresh-cache
-  source $zsh_setup_path
-}
 
 # macOS only
 if [[ "$OSTYPE" == "darwin"* ]]; then
