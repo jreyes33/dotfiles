@@ -29,10 +29,16 @@ HISTFILE=~/.zsh_history
 PROMPT="%F{240}\$(repeat \$COLUMNS printf '·')%f"
 PROMPT+='%B%F{blue}%n%F{green}:%F{blue}%(3~|…|)%2~%F{green} ♞ %b%f'
 
+# base16-shell
 BASE16_SHELL=~/.config/base16-shell
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && source "$BASE16_SHELL/profile_helper.sh"
-base16_brewer
-# base16_one-light
+local helper=$BASE16_SHELL/profile_helper.sh
+if [[ -n "$PS1" && -s $helper ]]; then
+  source $helper
+  # dark theme
+  eval base16_brewer
+  # light theme
+  # eval base16_one-light
+fi
 
 # Aliases
 alias bat='bat --theme base16'
