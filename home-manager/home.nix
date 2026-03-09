@@ -9,7 +9,10 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  home.packages = [
+  home.packages = with pkgs; [
+    bat
+    fzf
+    ripgrep
   ];
 
   home.file = {
@@ -20,4 +23,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+  };
 }
