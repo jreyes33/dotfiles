@@ -13,16 +13,30 @@
     bat
     fzf
     ripgrep
+    tealdeer
+    zoxide
   ];
 
   home.file = {
   };
 
   home.sessionVariables = {
+    EDITOR = "vim";
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    NCURSES_NO_UTF8_ACS = "1";
+  };
+
+  home.shellAliases = {
+    ls = "ls --color=auto";
+    mlnl = "tldr --language es";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Enable zoxide integration
+  programs.zoxide.enable = true;
 
   stylix = {
     enable = true;
