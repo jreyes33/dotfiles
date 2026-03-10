@@ -35,8 +35,17 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Enable zoxide integration
   programs.zoxide.enable = true;
+  programs.alacritty.enable = true;
+  programs.gh.enable = true;
+
+  # Firefox config managed by Nix
+  programs.firefox = {
+    enable = true;
+    profiles.jona = {
+      isDefault = true;
+    };
+  };
 
   stylix = {
     enable = true;
