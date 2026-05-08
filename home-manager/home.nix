@@ -187,7 +187,7 @@
     history = {
       size = 10000;
       save = 10000;
-      path = "~/.zsh_history";
+      path = "${config.home.homeDirectory}/.zsh_history";
       ignoreAllDups = true;
       ignoreSpace = true;
       share = true;
