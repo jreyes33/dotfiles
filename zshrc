@@ -5,6 +5,11 @@ export LANG=en_US.UTF-8
 export PATH=~/bin:~/.cargo/bin:$PATH
 export EDITOR=vim
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export DO_NOT_TRACK=1
+export TELEPORT_CDN_BASE_URL=https://cdn.teleport.dev
+
+# Secret environment variables
+[[ -f ~/.env.secret ]] && source ~/.env.secret
 
 setopt histignorealldups hist_ignore_space share_history prompt_subst
 unsetopt auto_name_dirs
@@ -30,7 +35,7 @@ PROMPT="%F{240}\$(repeat \$COLUMNS printf '·')%f"
 PROMPT+='%B%F{blue}%n%F{green}:%F{blue}%(3~|…|)%2~%F{green} ♞ %b%f'
 
 BASE16_SHELL=~/.config/base16-shell
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && source "$BASE16_SHELL/profile_helper.sh"
+[[ -n "$PS1" ]] && [[ -s "$BASE16_SHELL/profile_helper.sh" ]] && source "$BASE16_SHELL/profile_helper.sh"
 base16_brewer
 # base16_one-light
 
@@ -38,6 +43,7 @@ base16_brewer
 alias ls='ls --color=auto'
 alias mlnl='tldr --language es'
 alias tmux-bash='tmux start \; source ~/bin/use-bash.tmux'
+alias hasta-la-raiz='cd $(git rev-parse --show-toplevel)'
 
 # Completions
 fpath+=~/.zfunc
@@ -51,13 +57,10 @@ compdef _files quilt
 command -v zoxide > /dev/null 2>&1 && eval "$(zoxide init zsh)"
 command -v mise > /dev/null 2>&1 && eval "$(mise activate zsh)"
 
-function heroku_enable_autocomplete {
-  local zsh_setup_path=~/.cache/heroku/autocomplete/zsh_setup
-  heroku autocomplete --refresh-cache
-  source $zsh_setup_path
-}
-
 # macOS only
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH=$HOMEBREW_PREFIX/opt/make/libexec/gnubin:~/Library/Python/3.12/bin:$PATH
+  export PATH=$HOMEBREW_PREFIX/opt/make/libexec/gnubin:~/Library/Python/3.13/bin:/opt/homebrew/opt/helm@3/bin:$PATH
 fi
+
+# nix
+eval "$(direnv hook zsh)"

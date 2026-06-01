@@ -142,7 +142,9 @@ let g:ale_linters = {
 \  'graphql': [],
 \}
 let g:ale_ruby_rubocop_executable = 'bundle'
+" TODO: remove needless_return config once this is released: https://github.com/rust-lang/rust-analyzer/issues/16542
 let g:ale_rust_analyzer_config = {
+\  'diagnostics': { 'disabled': ['needless_return'] },
 \  'check': { 'extraArgs': ['--target-dir', 'target/rust-analyzer'] },
 \  'server': {
 \    'extraEnv': {
@@ -161,3 +163,6 @@ let g:lightline = {
 function! LightlineFilename()
   return expand('%') ==# '' ? '[No Name]' : expand('%:~:.')
 endfunction
+
+" copilot
+
