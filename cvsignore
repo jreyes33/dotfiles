@@ -17,6 +17,7 @@ Session.vim
 # Mac OS X files
 .DS_Store
 
-# Local Claude Code settings
+# Local Claude Code files
 **/.claude/settings.local.json
+**/.claude/scheduled_tasks.lock
 **/.claude/tmp/
