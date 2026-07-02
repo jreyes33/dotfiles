@@ -163,6 +163,3 @@ let g:lightline = {
 function! LightlineFilename()
   return expand('%') ==# '' ? '[No Name]' : expand('%:~:.')
 endfunction
-
-" copilot
-

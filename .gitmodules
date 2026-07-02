@@ -73,6 +73,3 @@
 [submodule "vim/pack/plugins/start/starlark.vim"]
 	path = vim/pack/plugins/start/starlark.vim
 	url = https://github.com/cappyzawa/starlark.vim
-[submodule "vim/pack/plugins/start/copilot.vim"]
-	path = vim/pack/plugins/start/copilot.vim
-	url = https://github.com/github/copilot.vim.git
